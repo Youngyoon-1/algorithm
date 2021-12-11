@@ -19,14 +19,16 @@ public class 큰수의법칙 {
             .map(Integer::parseInt)
             .sorted(Integer::compareTo)
             .collect(Collectors.toList());
-        int result = 0;
         int first = arr.get(n - 1);
         int second = arr.get(n - 2);
 
-        //수열구하기
-        result = (first * k + second) * (m / (k + 1)) + m % (k + 1) * first;
+        //최대값의 더해지는 횟수 구하기
+        int count = m / (k + 1) * k;
+        count += m % (k + 1);
 
-        
+        int result = first * count;
+        result += second * (m - count);
+
         System.out.println(result);
     }
 
