@@ -23,14 +23,10 @@ public class 큰수의법칙 {
         int first = arr.get(n - 1);
         int second = arr.get(n - 2);
 
-        while (m != 0) {
-            for (int i = 0; i < k; i++) {
-                result += first;
-                m--;
-            }
-            result += second;
-            m--;
-        }
+        //수열구하기
+        result = (first * k + second) * (m / (k + 1)) + m % (k + 1) * first;
+
+        
         System.out.println(result);
     }
 
