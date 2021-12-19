@@ -11,18 +11,13 @@ public class 숫자카드게임 {
         Scanner scanner = new Scanner(System.in);
         int[] columnAncRow = Arrays.stream(scanner.nextLine().split(" ")).mapToInt(Integer::parseInt).toArray();
         int column = columnAncRow[0];
-        List<List<Integer>> allCard = new ArrayList<>();
-
-        for (int i = 0; i < column; i++) {
-            allCard.add(Arrays.stream(scanner.nextLine().split(" "))
-                .mapToInt(Integer::parseInt).boxed().collect(Collectors.toList()));
+        int result = 0;
+        for (int i = 0; i < scanner.nextInt(); i++) {
+            int minNumber = Arrays.stream(scanner.nextLine().split(" "))
+                .mapToInt(Integer::parseInt).min().getAsInt();
+            result = Math.max(result, minNumber);
         }
 
-        List<Integer> candidates = new ArrayList<>();
-        for (List<Integer> cards : allCard) {
-            candidates.add(cards.stream().min(Integer::compareTo).get());
-        }
-
-        System.out.println(candidates.stream().max(Integer::compareTo).get());
+        System.out.println(result);
     }
 }
