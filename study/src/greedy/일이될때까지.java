@@ -7,8 +7,8 @@ public class 일이될때까지 {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
         int k = scanner.nextInt();
-
         int resultCount = 0;
+
         while (true) {
             int target = (n / k) * k;
             resultCount += (n - target);
